@@ -10,13 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AnnouncementsRouteImport } from './routes/announcements'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EligibilityRouteImport } from './routes/eligibility'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as HowToApplyRouteImport } from './routes/how-to-apply'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkspaceRouteImport } from './routes/workspace'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
@@ -28,9 +33,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnnouncementsRoute = AnnouncementsRouteImport.update({
   id: '/announcements',
   path: '/announcements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentsRoute = DocumentsRouteImport.update({
@@ -58,9 +73,24 @@ const HowToApplyRoute = HowToApplyRouteImport.update({
   path: '/how-to-apply',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignInRoute = SignInRouteImport.update({
   id: '/sign-in',
   path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkspaceRoute = WorkspaceRouteImport.update({
@@ -91,13 +121,18 @@ const SchemesCodeRoute = SchemesCodeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
+  '/contact': typeof ContactRoute
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/privacy': typeof PrivacyRoute
   '/sign-in': typeof SignInRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
@@ -106,13 +141,18 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
+  '/contact': typeof ContactRoute
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/privacy': typeof PrivacyRoute
   '/sign-in': typeof SignInRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
@@ -122,13 +162,18 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
+  '/contact': typeof ContactRoute
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/privacy': typeof PrivacyRoute
   '/sign-in': typeof SignInRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
@@ -139,13 +184,18 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accessibility'
     | '/announcements'
+    | '/contact'
     | '/documents'
     | '/eligibility'
     | '/faq'
     | '/help'
     | '/how-to-apply'
+    | '/privacy'
     | '/sign-in'
+    | '/sitemap'
+    | '/terms'
     | '/workspace'
     | '/projects/$slug'
     | '/schemes/$code'
@@ -154,13 +204,18 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accessibility'
     | '/announcements'
+    | '/contact'
     | '/documents'
     | '/eligibility'
     | '/faq'
     | '/help'
     | '/how-to-apply'
+    | '/privacy'
     | '/sign-in'
+    | '/sitemap'
+    | '/terms'
     | '/workspace'
     | '/projects/$slug'
     | '/schemes/$code'
@@ -169,13 +224,18 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/accessibility'
     | '/announcements'
+    | '/contact'
     | '/documents'
     | '/eligibility'
     | '/faq'
     | '/help'
     | '/how-to-apply'
+    | '/privacy'
     | '/sign-in'
+    | '/sitemap'
+    | '/terms'
     | '/workspace'
     | '/projects/$slug'
     | '/schemes/$code'
@@ -185,13 +245,18 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   AnnouncementsRoute: typeof AnnouncementsRoute
+  ContactRoute: typeof ContactRoute
   DocumentsRoute: typeof DocumentsRoute
   EligibilityRoute: typeof EligibilityRoute
   FaqRoute: typeof FaqRoute
   HelpRoute: typeof HelpRoute
   HowToApplyRoute: typeof HowToApplyRoute
+  PrivacyRoute: typeof PrivacyRoute
   SignInRoute: typeof SignInRoute
+  SitemapRoute: typeof SitemapRoute
+  TermsRoute: typeof TermsRoute
   WorkspaceRoute: typeof WorkspaceRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   SchemesCodeRoute: typeof SchemesCodeRoute
@@ -208,11 +273,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/announcements': {
       id: '/announcements'
       path: '/announcements'
       fullPath: '/announcements'
       preLoaderRoute: typeof AnnouncementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documents': {
@@ -250,11 +329,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowToApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sign-in': {
       id: '/sign-in'
       path: '/sign-in'
       fullPath: '/sign-in'
       preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/workspace': {
@@ -297,13 +397,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccessibilityRoute: AccessibilityRoute,
   AnnouncementsRoute: AnnouncementsRoute,
+  ContactRoute: ContactRoute,
   DocumentsRoute: DocumentsRoute,
   EligibilityRoute: EligibilityRoute,
   FaqRoute: FaqRoute,
   HelpRoute: HelpRoute,
   HowToApplyRoute: HowToApplyRoute,
+  PrivacyRoute: PrivacyRoute,
   SignInRoute: SignInRoute,
+  SitemapRoute: SitemapRoute,
+  TermsRoute: TermsRoute,
   WorkspaceRoute: WorkspaceRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   SchemesCodeRoute: SchemesCodeRoute,

@@ -9,6 +9,7 @@ const nav = [
   { to: "/eligibility", label: "Eligibility" },
   { to: "/how-to-apply", label: "How to apply" },
   { to: "/projects", label: "Projects" },
+  { to: "/documents", label: "Documents" },
   { to: "/faq", label: "FAQ" },
   { to: "/help", label: "Help" },
 ] as const;
@@ -64,6 +65,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
             {nav.map((n) => <Link key={n.to} to={n.to} className="text-muted-foreground hover:text-foreground">{n.label}</Link>)}
             <Link to="/documents" className="text-muted-foreground hover:text-foreground">Documents</Link>
             <Link to="/announcements" className="text-muted-foreground hover:text-foreground">Announcements</Link>
+            <Link to="/contact" className="text-muted-foreground hover:text-foreground">Contact</Link>
+            <Link to="/sitemap" className="text-muted-foreground hover:text-foreground">Sitemap</Link>
+            <Link to="/accessibility" className="text-muted-foreground hover:text-foreground">Accessibility</Link>
+            <Link to="/privacy" className="text-muted-foreground hover:text-foreground">Privacy</Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-foreground">Terms</Link>
           </div>
           <div className="text-sm text-muted-foreground">
             For official information, visit{" "}
