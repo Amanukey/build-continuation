@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Info } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
 import { officialSchemeUrl } from "@/lib/demo-data";
 
 const nav = [
@@ -12,6 +11,7 @@ const nav = [
   { to: "/documents", label: "Documents" },
   { to: "/faq", label: "FAQ" },
   { to: "/help", label: "Help" },
+  { to: "/announcements", label: "Announcements" },
 ] as const;
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -27,7 +27,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
         <div className="container-page flex h-16 items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-            <img src={logo.url} alt="" className="h-9 w-9" />
+            <img src="/favicon.png" alt="Housing Assist" className="h-9 w-9" />
             <span className="font-display text-lg font-semibold leading-none">
               Housing Assist<span className="block text-[0.65rem] font-sans font-semibold uppercase tracking-[0.18em] text-muted-foreground">PMAY-U 2.0 demo</span>
             </span>
@@ -64,7 +64,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <div className="grid grid-cols-2 gap-2 text-sm">
             {nav.map((n) => <Link key={n.to} to={n.to} className="text-muted-foreground hover:text-foreground">{n.label}</Link>)}
             <Link to="/documents" className="text-muted-foreground hover:text-foreground">Documents</Link>
-            <Link to="/announcements" className="text-muted-foreground hover:text-foreground">Announcements</Link>
             <Link to="/contact" className="text-muted-foreground hover:text-foreground">Contact</Link>
             <Link to="/sitemap" className="text-muted-foreground hover:text-foreground">Sitemap</Link>
             <Link to="/accessibility" className="text-muted-foreground hover:text-foreground">Accessibility</Link>
