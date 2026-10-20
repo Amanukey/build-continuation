@@ -80,8 +80,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Housing Assist — PMAY-U 2.0 demo" },
-      { name: "description", content: "A plain-language demo guide to PMAY-U 2.0 housing components." },
+      { title: "Housing Assist — PMAY-U 2.0 Portal" },
+      { name: "description", content: "A clear digital access point for PMAY-U 2.0 housing guidance, applications and service support." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
