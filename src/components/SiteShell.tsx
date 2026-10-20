@@ -81,13 +81,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
   );
 }
 
-export function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+export function PageIntro({ eyebrow, title, description, image }: { eyebrow: string; title: string; description: string; image?: string }) {
+  const heroImage = image ?? (title.toLowerCase().includes("project") ? "/images/housing-project.png" : "/images/housing-hero.png");
   return (
-    <section className="border-b bg-secondary/60">
-      <div className="container-page py-14 md:py-20">
-        <p className="eyebrow">{eyebrow}</p>
+    <section
+      className="relative overflow-hidden border-b bg-primary bg-cover bg-center text-primary-foreground"
+      style={{ backgroundImage: `linear-gradient(90deg, rgba(5, 20, 62, 0.94), rgba(5, 20, 62, 0.72) 55%, rgba(5, 20, 62, 0.34)), url(${heroImage})` }}
+    >
+      <div className="container-page relative py-14 md:py-20">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{eyebrow}</p>
         <h1 className="mt-3 max-w-3xl text-4xl font-semibold md:text-6xl">{title}</h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{description}</p>
+        <p className="mt-4 max-w-2xl text-lg text-primary-foreground/80">{description}</p>
       </div>
     </section>
   );
