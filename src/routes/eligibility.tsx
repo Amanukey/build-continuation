@@ -30,7 +30,7 @@ function Eligibility() {
   }, []);
   useEffect(() => { sessionStorage.setItem(KEY, JSON.stringify(answers)); }, [answers]);
 
-  const q = eligibilityQuestions[step];
+  const q = eligibilityQuestions[step]!;
   const result = getIndicativeEligibility(answers);
 
   const next = () => {

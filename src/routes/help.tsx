@@ -39,8 +39,8 @@ function Help() {
         ) : (
           <form onSubmit={submit} noValidate className="space-y-5 rounded-2xl border bg-card p-8">
             <h2 className="text-2xl font-semibold">Ask about this demo</h2>
-            <div><label htmlFor="name" className="font-semibold">Name</label><input id="name" name="name" className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" />{errors.name && <p className="mt-1 text-sm text-destructive">{errors.name}</p>}</div>
-            <div><label htmlFor="message" className="font-semibold">Message</label><textarea id="message" name="message" rows={5} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" /><p className="mt-1 text-xs text-muted-foreground">Please don't include ID, bank or phone numbers.</p>{errors.message && <p className="text-sm text-destructive">{errors.message}</p>}</div>
+            <div><label htmlFor="name" className="font-semibold">Name</label><input id="name" name="name" className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" />{errors["name"] && <p className="mt-1 text-sm text-destructive">{errors["name"]}</p>}</div>
+            <div><label htmlFor="message" className="font-semibold">Message</label><textarea id="message" name="message" rows={5} className="mt-1 w-full rounded-lg border bg-background px-3 py-2.5" /><p className="mt-1 text-xs text-muted-foreground">Please don't include ID, bank or phone numbers.</p>{errors["message"] && <p className="text-sm text-destructive">{errors["message"]}</p>}</div>
             <button className="rounded-full bg-primary px-6 py-2.5 font-semibold text-primary-foreground">Send (simulated)</button>
           </form>
         )}
