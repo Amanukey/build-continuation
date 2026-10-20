@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PortalPage } from "@/components/PortalPage";
+export const Route=createFileRoute("/ulb-directory")({component:()=> <PortalPage eyebrow="Local authority directory" title="Find the right local office." description="Search the synthetic directory by state, city or urban local body before beginning an official application." actions={[{label:"Start application",to:"/dashboard/applications/new",primary:true}]} sections={[{title:"State selection",text:"Choose your state to narrow the local authority list."},{title:"City or ULB",text:"Search by city or urban local body name."},{title:"What to take",text:"Carry your application reference and prescribed documents when contacting an office.",icon:"file"}]}/>});

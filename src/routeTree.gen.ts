@@ -11,32 +11,66 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as R403RouteImport } from './routes/403'
+import { Route as R404RouteImport } from './routes/404'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AnnouncementsRouteImport } from './routes/announcements'
+import { Route as ApplicationGuideRouteImport } from './routes/application-guide'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EligibilityRouteImport } from './routes/eligibility'
+import { Route as ErrorRouteImport } from './routes/error'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as HelpRouteImport } from './routes/help'
 import { Route as HowToApplyRouteImport } from './routes/how-to-apply'
+import { Route as IssCalculatorRouteImport } from './routes/iss-calculator'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SchemeFinderRouteImport } from './routes/scheme-finder'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as StaffRouteImport } from './routes/staff'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as UlbDirectoryRouteImport } from './routes/ulb-directory'
+import { Route as VerifyOtpRouteImport } from './routes/verify-otp'
 import { Route as WorkspaceRouteImport } from './routes/workspace'
+import { Route as AdminAnnouncementsRouteImport } from './routes/admin.announcements'
+import { Route as AdminAuditLogsRouteImport } from './routes/admin.audit-logs'
+import { Route as AdminProjectsRouteImport } from './routes/admin.projects'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminSchemeRulesRouteImport } from './routes/admin.scheme-rules'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth.forgot-password'
 import { Route as AuthLoginRouteImport } from './routes/auth.login'
 import { Route as AuthRegisterRouteImport } from './routes/auth.register'
 import { Route as DashboardApplicationsRouteImport } from './routes/dashboard.applications'
+import { Route as DashboardDocumentsRouteImport } from './routes/dashboard.documents'
+import { Route as DashboardGrievancesRouteImport } from './routes/dashboard.grievances'
+import { Route as DashboardNotificationsRouteImport } from './routes/dashboard.notifications'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard.profile'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as HousingProjectsIndexRouteImport } from './routes/housing-projects.index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as SchemesIndexRouteImport } from './routes/schemes.index'
 import { Route as SchemesCodeRouteImport } from './routes/schemes.$code'
+import { Route as StaffApplicationsRouteImport } from './routes/staff.applications'
+import { Route as StaffGrievancesRouteImport } from './routes/staff.grievances'
+import { Route as StaffReportsRouteImport } from './routes/staff.reports'
 import { Route as DashboardApplicationsReferenceRouteImport } from './routes/dashboard.applications.$reference'
 import { Route as DashboardApplicationsNewRouteImport } from './routes/dashboard.applications.new'
+import { Route as StaffApplicationsIdRouteImport } from './routes/staff.applications.$id'
 import { Route as DashboardApplicationsNewDetailsRouteImport } from './routes/dashboard.applications.new.details'
+import { Route as StaffApplicationsIdInspectionRouteImport } from './routes/staff.applications.$id.inspection'
+import { Route as StaffApplicationsIdVerificationRouteImport } from './routes/staff.applications.$id.verification'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -48,14 +82,34 @@ const R403Route = R403RouteImport.update({
   path: '/403',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AnnouncementsRoute = AnnouncementsRouteImport.update({
   id: '/announcements',
   path: '/announcements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationGuideRoute = ApplicationGuideRouteImport.update({
+  id: '/application-guide',
+  path: '/application-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -78,9 +132,19 @@ const EligibilityRoute = EligibilityRouteImport.update({
   path: '/eligibility',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ErrorRoute = ErrorRouteImport.update({
+  id: '/error',
+  path: '/error',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HelpRoute = HelpRouteImport.update({
@@ -93,9 +157,39 @@ const HowToApplyRoute = HowToApplyRouteImport.update({
   path: '/how-to-apply',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IssCalculatorRoute = IssCalculatorRouteImport.update({
+  id: '/iss-calculator',
+  path: '/iss-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemeFinderRoute = SchemeFinderRouteImport.update({
+  id: '/scheme-finder',
+  path: '/scheme-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignInRoute = SignInRouteImport.update({
@@ -108,15 +202,65 @@ const SitemapRoute = SitemapRouteImport.update({
   path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StaffRoute = StaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UlbDirectoryRoute = UlbDirectoryRouteImport.update({
+  id: '/ulb-directory',
+  path: '/ulb-directory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyOtpRoute = VerifyOtpRouteImport.update({
+  id: '/verify-otp',
+  path: '/verify-otp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkspaceRoute = WorkspaceRouteImport.update({
   id: '/workspace',
   path: '/workspace',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
+  id: '/announcements',
+  path: '/announcements',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProjectsRoute = AdminProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSchemeRulesRoute = AdminSchemeRulesRouteImport.update({
+  id: '/scheme-rules',
+  path: '/scheme-rules',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   id: '/auth/forgot-password',
@@ -138,6 +282,31 @@ const DashboardApplicationsRoute = DashboardApplicationsRouteImport.update({
   path: '/applications',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardDocumentsRoute = DashboardDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardGrievancesRoute = DashboardGrievancesRouteImport.update({
+  id: '/grievances',
+  path: '/grievances',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardNotificationsRoute = DashboardNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const HousingProjectsIndexRoute = HousingProjectsIndexRouteImport.update({
   id: '/housing-projects/',
   path: '/housing-projects/',
@@ -153,6 +322,11 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const SchemesIndexRoute = SchemesIndexRouteImport.update({
   id: '/schemes/',
   path: '/schemes/',
@@ -162,6 +336,21 @@ const SchemesCodeRoute = SchemesCodeRouteImport.update({
   id: '/schemes/$code',
   path: '/schemes/$code',
   getParentRoute: () => rootRouteImport,
+} as any)
+const StaffApplicationsRoute = StaffApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => StaffRoute,
+} as any)
+const StaffGrievancesRoute = StaffGrievancesRouteImport.update({
+  id: '/grievances',
+  path: '/grievances',
+  getParentRoute: () => StaffRoute,
+} as any)
+const StaffReportsRoute = StaffReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => StaffRoute,
 } as any)
 const DashboardApplicationsReferenceRoute =
   DashboardApplicationsReferenceRouteImport.update({
@@ -175,213 +364,449 @@ const DashboardApplicationsNewRoute =
     path: '/new',
     getParentRoute: () => DashboardApplicationsRoute,
   } as any)
+const StaffApplicationsIdRoute = StaffApplicationsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => StaffApplicationsRoute,
+} as any)
 const DashboardApplicationsNewDetailsRoute =
   DashboardApplicationsNewDetailsRouteImport.update({
     id: '/details',
     path: '/details',
     getParentRoute: () => DashboardApplicationsNewRoute,
   } as any)
+const StaffApplicationsIdInspectionRoute =
+  StaffApplicationsIdInspectionRouteImport.update({
+    id: '/inspection',
+    path: '/inspection',
+    getParentRoute: () => StaffApplicationsIdRoute,
+  } as any)
+const StaffApplicationsIdVerificationRoute =
+  StaffApplicationsIdVerificationRouteImport.update({
+    id: '/verification',
+    path: '/verification',
+    getParentRoute: () => StaffApplicationsIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/403': typeof R403Route
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRouteWithChildren
   '/announcements': typeof AnnouncementsRoute
+  '/application-guide': typeof ApplicationGuideRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
+  '/error': typeof ErrorRoute
   '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/iss-calculator': typeof IssCalculatorRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
+  '/progress': typeof ProgressRoute
+  '/register': typeof RegisterRoute
+  '/resources': typeof ResourcesRouteWithChildren
+  '/scheme-finder': typeof SchemeFinderRoute
   '/sign-in': typeof SignInRoute
   '/sitemap': typeof SitemapRoute
+  '/staff': typeof StaffRouteWithChildren
   '/terms': typeof TermsRoute
+  '/ulb-directory': typeof UlbDirectoryRoute
+  '/verify-otp': typeof VerifyOtpRoute
   '/workspace': typeof WorkspaceRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/scheme-rules': typeof AdminSchemeRulesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
+  '/dashboard/documents': typeof DashboardDocumentsRoute
+  '/dashboard/grievances': typeof DashboardGrievancesRoute
+  '/dashboard/notifications': typeof DashboardNotificationsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/staff/applications': typeof StaffApplicationsRouteWithChildren
+  '/staff/grievances': typeof StaffGrievancesRoute
+  '/staff/reports': typeof StaffReportsRoute
   '/housing-projects/': typeof HousingProjectsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/schemes/': typeof SchemesIndexRoute
   '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
   '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/staff/applications/$id': typeof StaffApplicationsIdRouteWithChildren
   '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
+  '/staff/applications/$id/inspection': typeof StaffApplicationsIdInspectionRoute
+  '/staff/applications/$id/verification': typeof StaffApplicationsIdVerificationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/403': typeof R403Route
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRouteWithChildren
   '/announcements': typeof AnnouncementsRoute
+  '/application-guide': typeof ApplicationGuideRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
+  '/error': typeof ErrorRoute
   '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/iss-calculator': typeof IssCalculatorRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
+  '/progress': typeof ProgressRoute
+  '/register': typeof RegisterRoute
+  '/resources': typeof ResourcesRouteWithChildren
+  '/scheme-finder': typeof SchemeFinderRoute
   '/sign-in': typeof SignInRoute
   '/sitemap': typeof SitemapRoute
+  '/staff': typeof StaffRouteWithChildren
   '/terms': typeof TermsRoute
+  '/ulb-directory': typeof UlbDirectoryRoute
+  '/verify-otp': typeof VerifyOtpRoute
   '/workspace': typeof WorkspaceRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/scheme-rules': typeof AdminSchemeRulesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
+  '/dashboard/documents': typeof DashboardDocumentsRoute
+  '/dashboard/grievances': typeof DashboardGrievancesRoute
+  '/dashboard/notifications': typeof DashboardNotificationsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/staff/applications': typeof StaffApplicationsRouteWithChildren
+  '/staff/grievances': typeof StaffGrievancesRoute
+  '/staff/reports': typeof StaffReportsRoute
   '/housing-projects': typeof HousingProjectsIndexRoute
   '/projects': typeof ProjectsIndexRoute
   '/schemes': typeof SchemesIndexRoute
   '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
   '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/staff/applications/$id': typeof StaffApplicationsIdRouteWithChildren
   '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
+  '/staff/applications/$id/inspection': typeof StaffApplicationsIdInspectionRoute
+  '/staff/applications/$id/verification': typeof StaffApplicationsIdVerificationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/403': typeof R403Route
+  '/404': typeof R404Route
+  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/admin': typeof AdminRouteWithChildren
   '/announcements': typeof AnnouncementsRoute
+  '/application-guide': typeof ApplicationGuideRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
+  '/error': typeof ErrorRoute
   '/faq': typeof FaqRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/help': typeof HelpRoute
   '/how-to-apply': typeof HowToApplyRoute
+  '/iss-calculator': typeof IssCalculatorRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
+  '/progress': typeof ProgressRoute
+  '/register': typeof RegisterRoute
+  '/resources': typeof ResourcesRouteWithChildren
+  '/scheme-finder': typeof SchemeFinderRoute
   '/sign-in': typeof SignInRoute
   '/sitemap': typeof SitemapRoute
+  '/staff': typeof StaffRouteWithChildren
   '/terms': typeof TermsRoute
+  '/ulb-directory': typeof UlbDirectoryRoute
+  '/verify-otp': typeof VerifyOtpRoute
   '/workspace': typeof WorkspaceRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/scheme-rules': typeof AdminSchemeRulesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
   '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
+  '/dashboard/documents': typeof DashboardDocumentsRoute
+  '/dashboard/grievances': typeof DashboardGrievancesRoute
+  '/dashboard/notifications': typeof DashboardNotificationsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
+  '/resources/$slug': typeof ResourcesSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/staff/applications': typeof StaffApplicationsRouteWithChildren
+  '/staff/grievances': typeof StaffGrievancesRoute
+  '/staff/reports': typeof StaffReportsRoute
   '/housing-projects/': typeof HousingProjectsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/schemes/': typeof SchemesIndexRoute
   '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
   '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/staff/applications/$id': typeof StaffApplicationsIdRouteWithChildren
   '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
+  '/staff/applications/$id/inspection': typeof StaffApplicationsIdInspectionRoute
+  '/staff/applications/$id/verification': typeof StaffApplicationsIdVerificationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/403'
+    | '/404'
+    | '/about'
     | '/accessibility'
+    | '/admin'
     | '/announcements'
+    | '/application-guide'
     | '/contact'
     | '/dashboard'
     | '/documents'
     | '/eligibility'
+    | '/error'
     | '/faq'
+    | '/forgot-password'
     | '/help'
     | '/how-to-apply'
+    | '/iss-calculator'
+    | '/login'
     | '/privacy'
+    | '/progress'
+    | '/register'
+    | '/resources'
+    | '/scheme-finder'
     | '/sign-in'
     | '/sitemap'
+    | '/staff'
     | '/terms'
+    | '/ulb-directory'
+    | '/verify-otp'
     | '/workspace'
+    | '/admin/announcements'
+    | '/admin/audit-logs'
+    | '/admin/projects'
+    | '/admin/reports'
+    | '/admin/scheme-rules'
+    | '/admin/settings'
+    | '/admin/users'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/register'
     | '/dashboard/applications'
+    | '/dashboard/documents'
+    | '/dashboard/grievances'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
     | '/projects/$slug'
+    | '/resources/$slug'
     | '/schemes/$code'
+    | '/staff/applications'
+    | '/staff/grievances'
+    | '/staff/reports'
     | '/housing-projects/'
     | '/projects/'
     | '/schemes/'
     | '/dashboard/applications/$reference'
     | '/dashboard/applications/new'
+    | '/staff/applications/$id'
     | '/dashboard/applications/new/details'
+    | '/staff/applications/$id/inspection'
+    | '/staff/applications/$id/verification'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/403'
+    | '/404'
+    | '/about'
     | '/accessibility'
+    | '/admin'
     | '/announcements'
+    | '/application-guide'
     | '/contact'
     | '/dashboard'
     | '/documents'
     | '/eligibility'
+    | '/error'
     | '/faq'
+    | '/forgot-password'
     | '/help'
     | '/how-to-apply'
+    | '/iss-calculator'
+    | '/login'
     | '/privacy'
+    | '/progress'
+    | '/register'
+    | '/resources'
+    | '/scheme-finder'
     | '/sign-in'
     | '/sitemap'
+    | '/staff'
     | '/terms'
+    | '/ulb-directory'
+    | '/verify-otp'
     | '/workspace'
+    | '/admin/announcements'
+    | '/admin/audit-logs'
+    | '/admin/projects'
+    | '/admin/reports'
+    | '/admin/scheme-rules'
+    | '/admin/settings'
+    | '/admin/users'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/register'
     | '/dashboard/applications'
+    | '/dashboard/documents'
+    | '/dashboard/grievances'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
     | '/projects/$slug'
+    | '/resources/$slug'
     | '/schemes/$code'
+    | '/staff/applications'
+    | '/staff/grievances'
+    | '/staff/reports'
     | '/housing-projects'
     | '/projects'
     | '/schemes'
     | '/dashboard/applications/$reference'
     | '/dashboard/applications/new'
+    | '/staff/applications/$id'
     | '/dashboard/applications/new/details'
+    | '/staff/applications/$id/inspection'
+    | '/staff/applications/$id/verification'
   id:
     | '__root__'
     | '/'
     | '/403'
+    | '/404'
+    | '/about'
     | '/accessibility'
+    | '/admin'
     | '/announcements'
+    | '/application-guide'
     | '/contact'
     | '/dashboard'
     | '/documents'
     | '/eligibility'
+    | '/error'
     | '/faq'
+    | '/forgot-password'
     | '/help'
     | '/how-to-apply'
+    | '/iss-calculator'
+    | '/login'
     | '/privacy'
+    | '/progress'
+    | '/register'
+    | '/resources'
+    | '/scheme-finder'
     | '/sign-in'
     | '/sitemap'
+    | '/staff'
     | '/terms'
+    | '/ulb-directory'
+    | '/verify-otp'
     | '/workspace'
+    | '/admin/announcements'
+    | '/admin/audit-logs'
+    | '/admin/projects'
+    | '/admin/reports'
+    | '/admin/scheme-rules'
+    | '/admin/settings'
+    | '/admin/users'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/register'
     | '/dashboard/applications'
+    | '/dashboard/documents'
+    | '/dashboard/grievances'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
+    | '/dashboard/settings'
     | '/projects/$slug'
+    | '/resources/$slug'
     | '/schemes/$code'
+    | '/staff/applications'
+    | '/staff/grievances'
+    | '/staff/reports'
     | '/housing-projects/'
     | '/projects/'
     | '/schemes/'
     | '/dashboard/applications/$reference'
     | '/dashboard/applications/new'
+    | '/staff/applications/$id'
     | '/dashboard/applications/new/details'
+    | '/staff/applications/$id/inspection'
+    | '/staff/applications/$id/verification'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R403Route: typeof R403Route
+  R404Route: typeof R404Route
+  AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AnnouncementsRoute: typeof AnnouncementsRoute
+  ApplicationGuideRoute: typeof ApplicationGuideRoute
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   DocumentsRoute: typeof DocumentsRoute
   EligibilityRoute: typeof EligibilityRoute
+  ErrorRoute: typeof ErrorRoute
   FaqRoute: typeof FaqRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   HelpRoute: typeof HelpRoute
   HowToApplyRoute: typeof HowToApplyRoute
+  IssCalculatorRoute: typeof IssCalculatorRoute
+  LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProgressRoute: typeof ProgressRoute
+  RegisterRoute: typeof RegisterRoute
+  ResourcesRoute: typeof ResourcesRouteWithChildren
+  SchemeFinderRoute: typeof SchemeFinderRoute
   SignInRoute: typeof SignInRoute
   SitemapRoute: typeof SitemapRoute
+  StaffRoute: typeof StaffRouteWithChildren
   TermsRoute: typeof TermsRoute
+  UlbDirectoryRoute: typeof UlbDirectoryRoute
+  VerifyOtpRoute: typeof VerifyOtpRoute
   WorkspaceRoute: typeof WorkspaceRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
@@ -409,6 +834,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R403RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/accessibility': {
       id: '/accessibility'
       path: '/accessibility'
@@ -416,11 +855,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/announcements': {
       id: '/announcements'
       path: '/announcements'
       fullPath: '/announcements'
       preLoaderRoute: typeof AnnouncementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/application-guide': {
+      id: '/application-guide'
+      path: '/application-guide'
+      fullPath: '/application-guide'
+      preLoaderRoute: typeof ApplicationGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -451,11 +904,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EligibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/error': {
+      id: '/error'
+      path: '/error'
+      fullPath: '/error'
+      preLoaderRoute: typeof ErrorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/help': {
@@ -472,11 +939,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowToApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/iss-calculator': {
+      id: '/iss-calculator'
+      path: '/iss-calculator'
+      fullPath: '/iss-calculator'
+      preLoaderRoute: typeof IssCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scheme-finder': {
+      id: '/scheme-finder'
+      path: '/scheme-finder'
+      fullPath: '/scheme-finder'
+      preLoaderRoute: typeof SchemeFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sign-in': {
@@ -493,11 +1002,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/staff': {
+      id: '/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof StaffRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ulb-directory': {
+      id: '/ulb-directory'
+      path: '/ulb-directory'
+      fullPath: '/ulb-directory'
+      preLoaderRoute: typeof UlbDirectoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-otp': {
+      id: '/verify-otp'
+      path: '/verify-otp'
+      fullPath: '/verify-otp'
+      preLoaderRoute: typeof VerifyOtpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/workspace': {
@@ -506,6 +1036,55 @@ declare module '@tanstack/react-router' {
       fullPath: '/workspace'
       preLoaderRoute: typeof WorkspaceRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/announcements': {
+      id: '/admin/announcements'
+      path: '/announcements'
+      fullPath: '/admin/announcements'
+      preLoaderRoute: typeof AdminAnnouncementsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit-logs': {
+      id: '/admin/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/admin/audit-logs'
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/projects': {
+      id: '/admin/projects'
+      path: '/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminProjectsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/scheme-rules': {
+      id: '/admin/scheme-rules'
+      path: '/scheme-rules'
+      fullPath: '/admin/scheme-rules'
+      preLoaderRoute: typeof AdminSchemeRulesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/auth/forgot-password': {
       id: '/auth/forgot-password'
@@ -535,6 +1114,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardApplicationsRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/documents': {
+      id: '/dashboard/documents'
+      path: '/documents'
+      fullPath: '/dashboard/documents'
+      preLoaderRoute: typeof DashboardDocumentsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/grievances': {
+      id: '/dashboard/grievances'
+      path: '/grievances'
+      fullPath: '/dashboard/grievances'
+      preLoaderRoute: typeof DashboardGrievancesRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/notifications': {
+      id: '/dashboard/notifications'
+      path: '/notifications'
+      fullPath: '/dashboard/notifications'
+      preLoaderRoute: typeof DashboardNotificationsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/housing-projects/': {
       id: '/housing-projects/'
       path: '/housing-projects'
@@ -556,6 +1170,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources/$slug': {
+      id: '/resources/$slug'
+      path: '/$slug'
+      fullPath: '/resources/$slug'
+      preLoaderRoute: typeof ResourcesSlugRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/schemes/': {
       id: '/schemes/'
       path: '/schemes'
@@ -569,6 +1190,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/schemes/$code'
       preLoaderRoute: typeof SchemesCodeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/staff/applications': {
+      id: '/staff/applications'
+      path: '/applications'
+      fullPath: '/staff/applications'
+      preLoaderRoute: typeof StaffApplicationsRouteImport
+      parentRoute: typeof StaffRoute
+    }
+    '/staff/grievances': {
+      id: '/staff/grievances'
+      path: '/grievances'
+      fullPath: '/staff/grievances'
+      preLoaderRoute: typeof StaffGrievancesRouteImport
+      parentRoute: typeof StaffRoute
+    }
+    '/staff/reports': {
+      id: '/staff/reports'
+      path: '/reports'
+      fullPath: '/staff/reports'
+      preLoaderRoute: typeof StaffReportsRouteImport
+      parentRoute: typeof StaffRoute
     }
     '/dashboard/applications/$reference': {
       id: '/dashboard/applications/$reference'
@@ -584,6 +1226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardApplicationsNewRouteImport
       parentRoute: typeof DashboardApplicationsRoute
     }
+    '/staff/applications/$id': {
+      id: '/staff/applications/$id'
+      path: '/$id'
+      fullPath: '/staff/applications/$id'
+      preLoaderRoute: typeof StaffApplicationsIdRouteImport
+      parentRoute: typeof StaffApplicationsRoute
+    }
     '/dashboard/applications/new/details': {
       id: '/dashboard/applications/new/details'
       path: '/details'
@@ -591,8 +1240,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardApplicationsNewDetailsRouteImport
       parentRoute: typeof DashboardApplicationsNewRoute
     }
+    '/staff/applications/$id/inspection': {
+      id: '/staff/applications/$id/inspection'
+      path: '/inspection'
+      fullPath: '/staff/applications/$id/inspection'
+      preLoaderRoute: typeof StaffApplicationsIdInspectionRouteImport
+      parentRoute: typeof StaffApplicationsIdRoute
+    }
+    '/staff/applications/$id/verification': {
+      id: '/staff/applications/$id/verification'
+      path: '/verification'
+      fullPath: '/staff/applications/$id/verification'
+      preLoaderRoute: typeof StaffApplicationsIdVerificationRouteImport
+      parentRoute: typeof StaffApplicationsIdRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminAnnouncementsRoute: typeof AdminAnnouncementsRoute
+  AdminAuditLogsRoute: typeof AdminAuditLogsRoute
+  AdminProjectsRoute: typeof AdminProjectsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSchemeRulesRoute: typeof AdminSchemeRulesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnnouncementsRoute: AdminAnnouncementsRoute,
+  AdminAuditLogsRoute: AdminAuditLogsRoute,
+  AdminProjectsRoute: AdminProjectsRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSchemeRulesRoute: AdminSchemeRulesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface DashboardApplicationsNewRouteChildren {
   DashboardApplicationsNewDetailsRoute: typeof DashboardApplicationsNewDetailsRoute
@@ -625,32 +1310,107 @@ const DashboardApplicationsRouteWithChildren =
 
 interface DashboardRouteChildren {
   DashboardApplicationsRoute: typeof DashboardApplicationsRouteWithChildren
+  DashboardDocumentsRoute: typeof DashboardDocumentsRoute
+  DashboardGrievancesRoute: typeof DashboardGrievancesRoute
+  DashboardNotificationsRoute: typeof DashboardNotificationsRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardApplicationsRoute: DashboardApplicationsRouteWithChildren,
+  DashboardDocumentsRoute: DashboardDocumentsRoute,
+  DashboardGrievancesRoute: DashboardGrievancesRoute,
+  DashboardNotificationsRoute: DashboardNotificationsRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
 }
 
 const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
   DashboardRouteChildren,
 )
 
+interface ResourcesRouteChildren {
+  ResourcesSlugRoute: typeof ResourcesSlugRoute
+}
+
+const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesSlugRoute: ResourcesSlugRoute,
+}
+
+const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
+  ResourcesRouteChildren,
+)
+
+interface StaffApplicationsIdRouteChildren {
+  StaffApplicationsIdInspectionRoute: typeof StaffApplicationsIdInspectionRoute
+  StaffApplicationsIdVerificationRoute: typeof StaffApplicationsIdVerificationRoute
+}
+
+const StaffApplicationsIdRouteChildren: StaffApplicationsIdRouteChildren = {
+  StaffApplicationsIdInspectionRoute: StaffApplicationsIdInspectionRoute,
+  StaffApplicationsIdVerificationRoute: StaffApplicationsIdVerificationRoute,
+}
+
+const StaffApplicationsIdRouteWithChildren =
+  StaffApplicationsIdRoute._addFileChildren(StaffApplicationsIdRouteChildren)
+
+interface StaffApplicationsRouteChildren {
+  StaffApplicationsIdRoute: typeof StaffApplicationsIdRouteWithChildren
+}
+
+const StaffApplicationsRouteChildren: StaffApplicationsRouteChildren = {
+  StaffApplicationsIdRoute: StaffApplicationsIdRouteWithChildren,
+}
+
+const StaffApplicationsRouteWithChildren =
+  StaffApplicationsRoute._addFileChildren(StaffApplicationsRouteChildren)
+
+interface StaffRouteChildren {
+  StaffApplicationsRoute: typeof StaffApplicationsRouteWithChildren
+  StaffGrievancesRoute: typeof StaffGrievancesRoute
+  StaffReportsRoute: typeof StaffReportsRoute
+}
+
+const StaffRouteChildren: StaffRouteChildren = {
+  StaffApplicationsRoute: StaffApplicationsRouteWithChildren,
+  StaffGrievancesRoute: StaffGrievancesRoute,
+  StaffReportsRoute: StaffReportsRoute,
+}
+
+const StaffRouteWithChildren = StaffRoute._addFileChildren(StaffRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R403Route: R403Route,
+  R404Route: R404Route,
+  AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
+  AdminRoute: AdminRouteWithChildren,
   AnnouncementsRoute: AnnouncementsRoute,
+  ApplicationGuideRoute: ApplicationGuideRoute,
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRouteWithChildren,
   DocumentsRoute: DocumentsRoute,
   EligibilityRoute: EligibilityRoute,
+  ErrorRoute: ErrorRoute,
   FaqRoute: FaqRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   HelpRoute: HelpRoute,
   HowToApplyRoute: HowToApplyRoute,
+  IssCalculatorRoute: IssCalculatorRoute,
+  LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
+  ProgressRoute: ProgressRoute,
+  RegisterRoute: RegisterRoute,
+  ResourcesRoute: ResourcesRouteWithChildren,
+  SchemeFinderRoute: SchemeFinderRoute,
   SignInRoute: SignInRoute,
   SitemapRoute: SitemapRoute,
+  StaffRoute: StaffRouteWithChildren,
   TermsRoute: TermsRoute,
+  UlbDirectoryRoute: UlbDirectoryRoute,
+  VerifyOtpRoute: VerifyOtpRoute,
   WorkspaceRoute: WorkspaceRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,

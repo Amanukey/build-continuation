@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/admin/settings")({component:()=> <OperationsPage mode="Administrator" title="Platform settings" items={["Portal identity","Notification rules","Accessibility defaults","Demo reset"]}/>});
