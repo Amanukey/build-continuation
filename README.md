@@ -1,22 +1,23 @@
-# Welcome to your Lovable project
+# Affordable Housing Portal (Student Demo)
 
-This project was built with [Lovable](https://lovable.dev).
+A demo web portal that explains four affordable housing schemes — BLC, AHP, ARH and ISS —
+and lets users explore sample projects, check eligibility questions, and walk through a
+demo application workflow.
 
-## Build with Lovable
+## What's inside
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Home** — community overview, the four schemes, sample projects and common questions.
+- **Schemes** — BLC, AHP, ARH and ISS descriptions.
+- **Projects** — sample projects with an option to show or hide demo data.
+- **Eligibility** — guided questions to see which schemes a household may qualify for.
+- **Officer workspace** — a demo officer view to review and advance applications.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+Demo roles are browser-tab only (sessionStorage); no real authentication or personal
+data is collected. All sample data lives in `src/lib/demo-data.ts`.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
 npm i
 npm run dev
 ```
