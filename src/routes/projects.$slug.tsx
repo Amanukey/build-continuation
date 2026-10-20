@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { demoProjects, schemes } from "@/lib/demo-data";
 import { DemoBadge } from "@/components/SiteShell";
-import hero from "@/assets/pmay-community.jpg.asset.json";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -23,7 +22,7 @@ function ProjectPage() {
   return (
     <article className="container-page py-12">
       <Link to="/projects" className="text-sm font-semibold text-primary hover:underline">← All projects</Link>
-      <img src={hero.url} alt="Illustrative housing courtyard" className="mt-6 h-72 w-full rounded-2xl object-cover md:h-96" />
+      <img src="/images/housing-project.png" alt={`${project.name} housing community`} className="mt-6 h-72 w-full rounded-2xl object-cover md:h-96" />
       <div className="mt-8 grid gap-10 lg:grid-cols-[2fr_1fr]">
         <div>
           <div className="flex gap-2"><DemoBadge>Synthetic listing</DemoBadge><DemoBadge>{project.type}</DemoBadge></div>

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Home, Building2, KeyRound, Landmark, ClipboardCheck, FileText, Search } from "lucide-react";
-import hero from "@/assets/pmay-community.jpg.asset.json";
 import { schemes, demoProjects, faqItems } from "@/lib/demo-data";
 import { DemoBadge } from "@/components/SiteShell";
 
@@ -22,7 +21,7 @@ function Index() {
   return (
     <>
       <section className="relative isolate overflow-hidden">
-        <img src={hero.url} alt="Families walking through a leafy affordable-housing courtyard" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src="/images/housing-hero.png" alt="Families walking through a leafy affordable-housing courtyard" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-hero-fade" />
         <div className="container-page flex min-h-[78vh] flex-col justify-end pb-16 pt-32 text-primary-foreground">
           <p className="eyebrow !text-accent">Pradhan Mantri Awas Yojana — Urban 2.0</p>

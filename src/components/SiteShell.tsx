@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Info } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
 import { officialSchemeUrl } from "@/lib/demo-data";
 
 const nav = [
@@ -27,7 +26,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
         <div className="container-page flex h-16 items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-            <img src={logo.url} alt="" className="h-9 w-9" />
+            <img src="/favicon.png" alt="Housing Assist" className="h-9 w-9" />
             <span className="font-display text-lg font-semibold leading-none">
               Housing Assist<span className="block text-[0.65rem] font-sans font-semibold uppercase tracking-[0.18em] text-muted-foreground">PMAY-U 2.0 demo</span>
             </span>

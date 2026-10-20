@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import { searchDemoProjects, schemes } from "@/lib/demo-data";
 import { PageIntro, DemoBadge } from "@/components/SiteShell";
-import hero from "@/assets/pmay-community.jpg.asset.json";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -41,7 +40,7 @@ function Projects() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((p) => (
             <Link key={p.slug} to="/projects/$slug" params={{ slug: p.slug }} className="overflow-hidden rounded-2xl border bg-card shadow-soft transition hover:-translate-y-1">
-              <img src={hero.url} alt="" className="h-40 w-full object-cover" loading="lazy" />
+              <img src="/images/housing-project.png" alt={`${p.name} housing community`} className="h-40 w-full object-cover" loading="lazy" />
               <div className="p-5">
                 <div className="flex gap-2"><DemoBadge>Sample</DemoBadge><DemoBadge>{p.scheme}</DemoBadge></div>
                 <h2 className="mt-3 text-xl font-semibold">{p.name}</h2>
