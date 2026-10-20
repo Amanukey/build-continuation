@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/admin/users")({component:()=> <OperationsPage mode="Administrator" title="User management" items={["Citizen accounts","Staff accounts","Admin roles","Access requests"]}/>});

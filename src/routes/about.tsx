@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PortalPage } from "@/components/PortalPage";
+export const Route=createFileRoute("/about")({component:()=> <PortalPage eyebrow="About this prototype" title="A clearer way to understand housing assistance." description="Housing Assist is a college demonstration of a modern PMAY-U 2.0 information and journey portal." sections={[{title:"Plain language",text:"Policy concepts are presented as decisions and next steps."},{title:"End-to-end journeys",text:"The frontend demonstrates citizen, officer and administrator workflows."},{title:"Synthetic by design",text:"No real government submission, identity verification or payment takes place."}]}/>});

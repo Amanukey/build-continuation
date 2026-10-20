@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PortalPage } from "@/components/PortalPage";
+export const Route=createFileRoute("/resources/$slug")({component:Resource});
+function Resource(){const {slug}=Route.useParams();return <PortalPage eyebrow="Resource" title={slug.replaceAll("-"," ")} description="A focused, plain-language resource for the housing journey." actions={[{label:"Back to resources",to:"/resources"},{label:"Check eligibility",to:"/eligibility",primary:true}]} sections={[{title:"What this explains",text:"Use this guide to understand the next step without replacing official rules."},{title:"Prepare carefully",text:"Use the document checklist and save your progress as you move through the demonstration.",icon:"file"},{title:"Need help?",text:"Visit Help or contact the demonstration team if a step is unclear.",icon:"check"}]}/>;}

@@ -22,7 +22,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <div className="bg-primary text-primary-foreground">
         <p className="container-page flex items-center gap-2 py-2 text-xs">
           <Info className="h-3.5 w-3.5 shrink-0" aria-hidden />
-          Student demonstration — not an official government portal. Nothing here is submitted or verified.
+          PMAY-U 2.0 information and application support portal. Verify final requirements with your urban local body.
         </p>
       </div>
       <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
@@ -30,7 +30,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
             <img src="/favicon.png" alt="Housing Assist" className="h-9 w-9" />
             <span className="font-display text-lg font-semibold leading-none">
-              Housing Assist<span className="block text-[0.65rem] font-sans font-semibold uppercase tracking-[0.18em] text-muted-foreground">PMAY-U 2.0 demo</span>
+              Housing Assist<span className="block text-[0.65rem] font-sans font-semibold uppercase tracking-[0.18em] text-muted-foreground">PMAY-U 2.0 portal</span>
             </span>
           </Link>
           <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
@@ -60,7 +60,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="container-page grid gap-8 py-12 md:grid-cols-3">
           <div>
             <p className="font-display text-xl font-semibold">Housing Assist</p>
-            <p className="mt-2 text-sm text-muted-foreground">A college prototype that explains PMAY-U 2.0 in plain language. All projects, records and announcements are synthetic.</p>
+            <p className="mt-2 text-sm text-muted-foreground">A unified digital access point for PMAY-U 2.0 guidance, applications and service support. Always confirm current requirements with the responsible authority.</p>
           </div>
           <div className="grid grid-cols-2 gap-2 text-sm">
             {nav.map((n) => <Link key={n.to} to={n.to} className="text-muted-foreground hover:text-foreground">{n.label}</Link>)}

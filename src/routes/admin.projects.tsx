@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/admin/projects")({component:()=> <OperationsPage mode="Administrator" title="Housing projects" items={["Published projects","Draft listings","Milestones","Local authority mapping"]}/>});

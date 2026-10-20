@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/dashboard/grievances")({component:()=> <OperationsPage mode="Citizen" title="My grievances" items={["Open grievances","Awaiting response","Resolved grievances"]}/>});

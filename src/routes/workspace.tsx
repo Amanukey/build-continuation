@@ -28,7 +28,7 @@ function Workspace() {
 
   if (!ready) return <div className="container-page py-20" />;
   if (!role) return (
-    <div className="container-page py-20 text-center"><h1 className="text-4xl font-semibold">You're not signed in to the demo.</h1><Link to="/sign-in" className="mt-6 inline-block rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Choose a role</Link></div>
+    <div className="container-page py-16"><div className="mx-auto max-w-3xl rounded-3xl border bg-card p-8 text-center shadow-soft md:p-12"><DemoBadge>Secure role access</DemoBadge><h1 className="mt-4 text-4xl font-semibold">Choose your PMAY-U workspace</h1><p className="mx-auto mt-3 max-w-xl text-muted-foreground">Select the workspace you are authorised to use. Each view has the queues and actions needed for that role.</p><div className="mt-8 grid gap-3 text-left md:grid-cols-3">{demoRoles.map((r) => <button key={r.role} type="button" onClick={() => setRole(r.role)} className="rounded-2xl border p-5 transition hover:-translate-y-0.5 hover:border-primary hover:bg-primary/5"><p className="font-semibold">{r.label}</p><p className="mt-1 text-sm text-muted-foreground">{r.role === "citizen" ? "Apply, upload documents and track support." : r.role === "officer" ? "Review applications and verification queues." : "Manage programme controls and reporting."}</p><span className="mt-4 inline-block text-sm font-semibold text-primary">Enter workspace →</span></button>)}</div><p className="mt-8 text-sm text-muted-foreground">Need public information first? <Link to="/" className="font-semibold text-primary underline">Return to the PMAY-U portal</Link></p></div></div>
   );
   const label = demoRoles.find((r) => r.role === role)!.label;
 
@@ -47,23 +47,12 @@ function Workspace() {
       {role === "citizen" && (
         <div className="mt-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
           <section className="rounded-2xl border bg-card p-6">
-            <h2 className="text-2xl font-semibold">My sample applications</h2>
+            <div className="flex items-center justify-between gap-3"><div><h2 className="text-2xl font-semibold">My applications</h2><p className="mt-1 text-sm text-muted-foreground">Track every submission and its next action.</p></div><Link to="/dashboard/applications/new" className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">New application</Link></div>
             <ul className="mt-4 divide-y">
-              {apps.slice(0, 2).map((a) => (
-                <li key={a.reference} className="flex items-center justify-between py-4">
-                  <div><p className="font-semibold">{a.reference} · {a.component}</p><p className="text-sm text-muted-foreground">{a.city}</p></div>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-sm font-semibold">{a.status}</span>
-                </li>
-              ))}
+              {apps.slice(0, 2).map((a) => (<li key={a.reference} className="flex flex-wrap items-center justify-between gap-3 py-4"><div><p className="font-semibold">{a.reference} · {a.component}</p><p className="text-sm text-muted-foreground">{a.city} · Last updated today</p></div><div className="flex items-center gap-2"><span className="rounded-full bg-accent/15 px-3 py-1 text-sm font-semibold">{a.status}</span><Link to={`/dashboard/applications/${a.reference}` as never} className="text-sm font-semibold text-primary underline">View</Link></div></li>))}
             </ul>
           </section>
-          <section className="rounded-2xl bg-primary p-6 text-primary-foreground">
-            <h2 className="text-2xl font-semibold">Next steps</h2>
-            <div className="mt-4 grid gap-2">
-              <Link to="/eligibility" className="rounded-full bg-accent px-4 py-2.5 text-center font-semibold text-accent-foreground">Re-check eligibility</Link>
-              <Link to="/documents" className="rounded-full border border-primary-foreground/40 px-4 py-2.5 text-center font-semibold">Document checklist</Link>
-            </div>
-          </section>
+          <section className="rounded-2xl bg-primary p-6 text-primary-foreground"><h2 className="text-2xl font-semibold">Next steps</h2><p className="mt-2 text-sm text-primary-foreground/75">Keep your documents ready to avoid delays in verification.</p><div className="mt-4 grid gap-2"><Link to="/eligibility" className="rounded-full bg-accent px-4 py-2.5 text-center font-semibold text-accent-foreground">Re-check eligibility</Link><Link to="/documents" className="rounded-full border border-primary-foreground/40 px-4 py-2.5 text-center font-semibold">Document checklist</Link><Link to="/dashboard/grievances" className="rounded-full border border-primary-foreground/40 px-4 py-2.5 text-center font-semibold">Get support</Link></div></section>
         </div>
       )}
 

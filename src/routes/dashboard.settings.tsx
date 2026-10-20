@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/dashboard/settings")({component:()=> <OperationsPage mode="Citizen" title="Settings" items={["Notifications","Language","Accessibility","Demo preferences"]}/>});

@@ -1,0 +1,1 @@
+import { createFileRoute } from "@tanstack/react-router"; import { OperationsPage } from "@/components/OperationsPage"; export const Route=createFileRoute("/admin/scheme-rules")({component:()=> <OperationsPage mode="Administrator" title="Scheme rules" items={["Income bands","Component conditions","Document requirements","Version history"]}/>});
