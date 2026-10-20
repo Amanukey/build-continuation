@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects/")({
   component: Projects,
 });
 
-function Projects() {
+export function Projects() {
   const [q, setQ] = useState("");
   const [c, setC] = useState("All");
   const results = searchDemoProjects(q, c);

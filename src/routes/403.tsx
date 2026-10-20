@@ -1,0 +1,3 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+export const Route=createFileRoute("/403")({component:Denied});
+function Denied(){return <section className="container-page py-24 text-center"><p className="eyebrow">403 · Access denied</p><h1 className="mt-3 text-5xl font-semibold">This workspace is not available.</h1><p className="mx-auto mt-4 max-w-xl text-muted-foreground">The selected role does not have permission to view this area in the demonstration.</p><Link to="/" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Return home</Link></section>}

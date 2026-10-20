@@ -12,6 +12,7 @@ const nav = [
   { to: "/faq", label: "FAQ" },
   { to: "/help", label: "Help" },
   { to: "/announcements", label: "Announcements" },
+  { to: "/dashboard", label: "My workspace" },
 ] as const;
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -40,7 +41,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <Link to="/sign-in" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 sm:inline-flex">Demo sign-in</Link>
+            <Link to="/auth/login" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 sm:inline-flex">Sign in</Link>
             <button className="rounded-md p-2 lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}>
               {open ? <X /> : <Menu />}
             </button>
@@ -48,7 +49,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
         {open && (
           <nav aria-label="Mobile" className="container-page grid gap-1 pb-4 lg:hidden">
-            {[...nav, { to: "/sign-in", label: "Demo sign-in" } as const].map((n) => (
+            {[...nav, { to: "/auth/login", label: "Sign in" } as const].map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 font-medium hover:bg-secondary">{n.label}</Link>
             ))}
           </nav>
