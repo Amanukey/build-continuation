@@ -22,6 +22,9 @@ function Workspace() {
   const navigate = useNavigate();
   const [apps, setApps] = useState(demoApplications.map((a) => ({ ...a, status: a.status as string })));
   const [projects, setProjects] = useState(demoProjects.map((p) => ({ ...p, published: true })));
+  const [filter, setFilter] = useState("All");
+  const [notice, setNotice] = useState("");
+  const filteredApps = filter === "All" ? apps : apps.filter((app) => app.status === filter);
 
   if (!ready) return <div className="container-page py-20" />;
   if (!role) return (
@@ -66,13 +69,22 @@ function Workspace() {
 
       {role === "officer" && (
         <section className="mt-10 overflow-x-auto rounded-2xl border bg-card">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b p-4">
+            <div><h2 className="text-lg font-semibold">Application queue</h2><p className="text-sm text-muted-foreground">Review and advance each application through the workflow.</p></div>
+            <label className="flex items-center gap-2 text-sm font-semibold">Filter
+              <select value={filter} onChange={(event) => setFilter(event.target.value)} className="rounded-full border bg-background px-3 py-2 font-normal">
+                <option>All</option><option>Submitted</option><option>Under review</option><option>Approved</option><option>Needs documents</option>
+              </select>
+            </label>
+          </div>
+          {notice && <p role="status" className="border-b bg-accent/10 px-4 py-3 text-sm font-semibold text-primary">{notice}</p>}
           <table className="w-full text-left">
             <thead className="bg-secondary text-sm"><tr><th className="p-4">Reference</th><th className="p-4">Applicant</th><th className="p-4">Component</th><th className="p-4">Status</th><th className="p-4"><span className="sr-only">Action</span></th></tr></thead>
             <tbody className="divide-y">
-              {apps.map((a) => (
+              {filteredApps.map((a) => (
                 <tr key={a.reference}>
                   <td className="p-4 font-semibold">{a.reference}</td><td className="p-4">{a.applicant}</td><td className="p-4">{a.component}</td><td className="p-4">{a.status}</td>
-                  <td className="p-4"><button disabled={advanceStatus(a.status) === a.status} onClick={() => { setApps(apps.map((x) => x.reference === a.reference ? { ...x, status: advanceStatus(x.status) } : x)); toast("Status advanced (simulated)"); }} className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground disabled:opacity-40">Advance</button></td>
+                  <td className="p-4"><button disabled={advanceStatus(a.status) === a.status} onClick={() => { const next = advanceStatus(a.status); setApps(apps.map((x) => x.reference === a.reference ? { ...x, status: next } : x)); setNotice(`${a.reference} moved to ${next}.`); toast("Application status updated"); }} className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground disabled:opacity-40">Advance</button></td>
                 </tr>
               ))}
             </tbody>
@@ -88,7 +100,7 @@ function Workspace() {
               <li key={p.slug} className="flex items-center justify-between gap-4 py-4">
                 <div><p className="font-semibold">{p.name}</p><p className="text-sm text-muted-foreground">{p.city} · {p.scheme}</p></div>
                 <label className="flex items-center gap-2 text-sm font-semibold">
-                  <input type="checkbox" checked={p.published} onChange={() => { setProjects(projects.map((x) => x.slug === p.slug ? { ...x, published: !x.published } : x)); toast("Visibility changed (simulated)"); }} className="h-4 w-4 accent-[var(--color-accent)]" />
+                  <input type="checkbox" checked={p.published} onChange={() => { setProjects(projects.map((x) => x.slug === p.slug ? { ...x, published: !x.published } : x)); setNotice(`${p.name} visibility updated.`); toast("Project visibility updated"); }} className="h-4 w-4 accent-[var(--color-accent)]" />
                   Visible
                 </label>
               </li>
