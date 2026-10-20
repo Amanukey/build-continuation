@@ -10,9 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as R403RouteImport } from './routes/403'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AnnouncementsRouteImport } from './routes/announcements'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as EligibilityRouteImport } from './routes/eligibility'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -23,14 +25,27 @@ import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkspaceRouteImport } from './routes/workspace'
+import { Route as AuthForgotPasswordRouteImport } from './routes/auth.forgot-password'
+import { Route as AuthLoginRouteImport } from './routes/auth.login'
+import { Route as AuthRegisterRouteImport } from './routes/auth.register'
+import { Route as DashboardApplicationsRouteImport } from './routes/dashboard.applications'
+import { Route as HousingProjectsIndexRouteImport } from './routes/housing-projects.index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as SchemesIndexRouteImport } from './routes/schemes.index'
 import { Route as SchemesCodeRouteImport } from './routes/schemes.$code'
+import { Route as DashboardApplicationsReferenceRouteImport } from './routes/dashboard.applications.$reference'
+import { Route as DashboardApplicationsNewRouteImport } from './routes/dashboard.applications.new'
+import { Route as DashboardApplicationsNewDetailsRouteImport } from './routes/dashboard.applications.new.details'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R403Route = R403RouteImport.update({
+  id: '/403',
+  path: '/403',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
@@ -46,6 +61,11 @@ const AnnouncementsRoute = AnnouncementsRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentsRoute = DocumentsRouteImport.update({
@@ -98,6 +118,31 @@ const WorkspaceRoute = WorkspaceRouteImport.update({
   path: '/workspace',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
+  id: '/auth/forgot-password',
+  path: '/auth/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/auth/register',
+  path: '/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardApplicationsRoute = DashboardApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const HousingProjectsIndexRoute = HousingProjectsIndexRouteImport.update({
+  id: '/housing-projects/',
+  path: '/housing-projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -118,12 +163,32 @@ const SchemesCodeRoute = SchemesCodeRouteImport.update({
   path: '/schemes/$code',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardApplicationsReferenceRoute =
+  DashboardApplicationsReferenceRouteImport.update({
+    id: '/$reference',
+    path: '/$reference',
+    getParentRoute: () => DashboardApplicationsRoute,
+  } as any)
+const DashboardApplicationsNewRoute =
+  DashboardApplicationsNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => DashboardApplicationsRoute,
+  } as any)
+const DashboardApplicationsNewDetailsRoute =
+  DashboardApplicationsNewDetailsRouteImport.update({
+    id: '/details',
+    path: '/details',
+    getParentRoute: () => DashboardApplicationsNewRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/403': typeof R403Route
   '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
@@ -134,16 +199,26 @@ export interface FileRoutesByFullPath {
   '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/housing-projects/': typeof HousingProjectsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/schemes/': typeof SchemesIndexRoute
+  '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
+  '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/403': typeof R403Route
   '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
@@ -154,17 +229,27 @@ export interface FileRoutesByTo {
   '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/housing-projects': typeof HousingProjectsIndexRoute
   '/projects': typeof ProjectsIndexRoute
   '/schemes': typeof SchemesIndexRoute
+  '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
+  '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/403': typeof R403Route
   '/accessibility': typeof AccessibilityRoute
   '/announcements': typeof AnnouncementsRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRouteWithChildren
   '/documents': typeof DocumentsRoute
   '/eligibility': typeof EligibilityRoute
   '/faq': typeof FaqRoute
@@ -175,18 +260,28 @@ export interface FileRoutesById {
   '/sitemap': typeof SitemapRoute
   '/terms': typeof TermsRoute
   '/workspace': typeof WorkspaceRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/dashboard/applications': typeof DashboardApplicationsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/schemes/$code': typeof SchemesCodeRoute
+  '/housing-projects/': typeof HousingProjectsIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/schemes/': typeof SchemesIndexRoute
+  '/dashboard/applications/$reference': typeof DashboardApplicationsReferenceRoute
+  '/dashboard/applications/new': typeof DashboardApplicationsNewRouteWithChildren
+  '/dashboard/applications/new/details': typeof DashboardApplicationsNewDetailsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/403'
     | '/accessibility'
     | '/announcements'
     | '/contact'
+    | '/dashboard'
     | '/documents'
     | '/eligibility'
     | '/faq'
@@ -197,16 +292,26 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/terms'
     | '/workspace'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/dashboard/applications'
     | '/projects/$slug'
     | '/schemes/$code'
+    | '/housing-projects/'
     | '/projects/'
     | '/schemes/'
+    | '/dashboard/applications/$reference'
+    | '/dashboard/applications/new'
+    | '/dashboard/applications/new/details'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/403'
     | '/accessibility'
     | '/announcements'
     | '/contact'
+    | '/dashboard'
     | '/documents'
     | '/eligibility'
     | '/faq'
@@ -217,16 +322,26 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/terms'
     | '/workspace'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/dashboard/applications'
     | '/projects/$slug'
     | '/schemes/$code'
+    | '/housing-projects'
     | '/projects'
     | '/schemes'
+    | '/dashboard/applications/$reference'
+    | '/dashboard/applications/new'
+    | '/dashboard/applications/new/details'
   id:
     | '__root__'
     | '/'
+    | '/403'
     | '/accessibility'
     | '/announcements'
     | '/contact'
+    | '/dashboard'
     | '/documents'
     | '/eligibility'
     | '/faq'
@@ -237,17 +352,27 @@ export interface FileRouteTypes {
     | '/sitemap'
     | '/terms'
     | '/workspace'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/dashboard/applications'
     | '/projects/$slug'
     | '/schemes/$code'
+    | '/housing-projects/'
     | '/projects/'
     | '/schemes/'
+    | '/dashboard/applications/$reference'
+    | '/dashboard/applications/new'
+    | '/dashboard/applications/new/details'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R403Route: typeof R403Route
   AccessibilityRoute: typeof AccessibilityRoute
   AnnouncementsRoute: typeof AnnouncementsRoute
   ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
   DocumentsRoute: typeof DocumentsRoute
   EligibilityRoute: typeof EligibilityRoute
   FaqRoute: typeof FaqRoute
@@ -258,8 +383,12 @@ export interface RootRouteChildren {
   SitemapRoute: typeof SitemapRoute
   TermsRoute: typeof TermsRoute
   WorkspaceRoute: typeof WorkspaceRoute
+  AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   SchemesCodeRoute: typeof SchemesCodeRoute
+  HousingProjectsIndexRoute: typeof HousingProjectsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   SchemesIndexRoute: typeof SchemesIndexRoute
 }
@@ -271,6 +400,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/403': {
+      id: '/403'
+      path: '/403'
+      fullPath: '/403'
+      preLoaderRoute: typeof R403RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility': {
@@ -292,6 +428,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documents': {
@@ -364,6 +507,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkspaceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/forgot-password': {
+      id: '/auth/forgot-password'
+      path: '/auth/forgot-password'
+      fullPath: '/auth/forgot-password'
+      preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/auth/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/applications': {
+      id: '/dashboard/applications'
+      path: '/applications'
+      fullPath: '/dashboard/applications'
+      preLoaderRoute: typeof DashboardApplicationsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/housing-projects/': {
+      id: '/housing-projects/'
+      path: '/housing-projects'
+      fullPath: '/housing-projects/'
+      preLoaderRoute: typeof HousingProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -392,14 +570,78 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchemesCodeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/applications/$reference': {
+      id: '/dashboard/applications/$reference'
+      path: '/$reference'
+      fullPath: '/dashboard/applications/$reference'
+      preLoaderRoute: typeof DashboardApplicationsReferenceRouteImport
+      parentRoute: typeof DashboardApplicationsRoute
+    }
+    '/dashboard/applications/new': {
+      id: '/dashboard/applications/new'
+      path: '/new'
+      fullPath: '/dashboard/applications/new'
+      preLoaderRoute: typeof DashboardApplicationsNewRouteImport
+      parentRoute: typeof DashboardApplicationsRoute
+    }
+    '/dashboard/applications/new/details': {
+      id: '/dashboard/applications/new/details'
+      path: '/details'
+      fullPath: '/dashboard/applications/new/details'
+      preLoaderRoute: typeof DashboardApplicationsNewDetailsRouteImport
+      parentRoute: typeof DashboardApplicationsNewRoute
+    }
   }
 }
 
+interface DashboardApplicationsNewRouteChildren {
+  DashboardApplicationsNewDetailsRoute: typeof DashboardApplicationsNewDetailsRoute
+}
+
+const DashboardApplicationsNewRouteChildren: DashboardApplicationsNewRouteChildren =
+  {
+    DashboardApplicationsNewDetailsRoute: DashboardApplicationsNewDetailsRoute,
+  }
+
+const DashboardApplicationsNewRouteWithChildren =
+  DashboardApplicationsNewRoute._addFileChildren(
+    DashboardApplicationsNewRouteChildren,
+  )
+
+interface DashboardApplicationsRouteChildren {
+  DashboardApplicationsReferenceRoute: typeof DashboardApplicationsReferenceRoute
+  DashboardApplicationsNewRoute: typeof DashboardApplicationsNewRouteWithChildren
+}
+
+const DashboardApplicationsRouteChildren: DashboardApplicationsRouteChildren = {
+  DashboardApplicationsReferenceRoute: DashboardApplicationsReferenceRoute,
+  DashboardApplicationsNewRoute: DashboardApplicationsNewRouteWithChildren,
+}
+
+const DashboardApplicationsRouteWithChildren =
+  DashboardApplicationsRoute._addFileChildren(
+    DashboardApplicationsRouteChildren,
+  )
+
+interface DashboardRouteChildren {
+  DashboardApplicationsRoute: typeof DashboardApplicationsRouteWithChildren
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardApplicationsRoute: DashboardApplicationsRouteWithChildren,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R403Route: R403Route,
   AccessibilityRoute: AccessibilityRoute,
   AnnouncementsRoute: AnnouncementsRoute,
   ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRouteWithChildren,
   DocumentsRoute: DocumentsRoute,
   EligibilityRoute: EligibilityRoute,
   FaqRoute: FaqRoute,
@@ -410,8 +652,12 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapRoute: SitemapRoute,
   TermsRoute: TermsRoute,
   WorkspaceRoute: WorkspaceRoute,
+  AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   SchemesCodeRoute: SchemesCodeRoute,
+  HousingProjectsIndexRoute: HousingProjectsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   SchemesIndexRoute: SchemesIndexRoute,
 }

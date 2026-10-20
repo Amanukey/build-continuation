@@ -12,6 +12,7 @@ const nav = [
   { to: "/faq", label: "FAQ" },
   { to: "/help", label: "Help" },
   { to: "/announcements", label: "Announcements" },
+  { to: "/dashboard", label: "My workspace" },
 ] as const;
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -40,7 +41,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <Link to="/sign-in" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 sm:inline-flex">Demo sign-in</Link>
+            <Link to="/auth/login" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 sm:inline-flex">Sign in</Link>
             <button className="rounded-md p-2 lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}>
               {open ? <X /> : <Menu />}
             </button>
@@ -48,7 +49,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
         {open && (
           <nav aria-label="Mobile" className="container-page grid gap-1 pb-4 lg:hidden">
-            {[...nav, { to: "/sign-in", label: "Demo sign-in" } as const].map((n) => (
+            {[...nav, { to: "/auth/login", label: "Sign in" } as const].map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 font-medium hover:bg-secondary">{n.label}</Link>
             ))}
           </nav>
@@ -80,13 +81,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
   );
 }
 
-export function PageIntro({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+export function PageIntro({ eyebrow, title, description, image }: { eyebrow: string; title: string; description: string; image?: string }) {
+  const heroImage = image ?? (title.toLowerCase().includes("project") ? "/images/housing-project.png" : "/images/housing-hero.png");
   return (
-    <section className="border-b bg-secondary/60">
-      <div className="container-page py-14 md:py-20">
-        <p className="eyebrow">{eyebrow}</p>
+    <section
+      className="relative overflow-hidden border-b bg-primary bg-cover bg-center text-primary-foreground"
+      style={{ backgroundImage: `linear-gradient(90deg, rgba(5, 20, 62, 0.94), rgba(5, 20, 62, 0.72) 55%, rgba(5, 20, 62, 0.34)), url(${heroImage})` }}
+    >
+      <div className="container-page relative py-14 md:py-20">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{eyebrow}</p>
         <h1 className="mt-3 max-w-3xl text-4xl font-semibold md:text-6xl">{title}</h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{description}</p>
+        <p className="mt-4 max-w-2xl text-lg text-primary-foreground/80">{description}</p>
       </div>
     </section>
   );
