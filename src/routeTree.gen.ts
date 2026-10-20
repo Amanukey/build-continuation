@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnnouncementsRouteImport } from './routes/announcements'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as EligibilityRouteImport } from './routes/eligibility'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as HowToApplyRouteImport } from './routes/how-to-apply'
+import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as WorkspaceRouteImport } from './routes/workspace'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as SchemesIndexRouteImport } from './routes/schemes.index'
+import { Route as SchemesCodeRouteImport } from './routes/schemes.$code'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnnouncementsRoute = AnnouncementsRouteImport.update({
+  id: '/announcements',
+  path: '/announcements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EligibilityRoute = EligibilityRouteImport.update({
+  id: '/eligibility',
+  path: '/eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToApplyRoute = HowToApplyRouteImport.update({
+  id: '/how-to-apply',
+  path: '/how-to-apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkspaceRoute = WorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemesIndexRoute = SchemesIndexRouteImport.update({
+  id: '/schemes/',
+  path: '/schemes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemesCodeRoute = SchemesCodeRouteImport.update({
+  id: '/schemes/$code',
+  path: '/schemes/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/documents': typeof DocumentsRoute
+  '/eligibility': typeof EligibilityRoute
+  '/faq': typeof FaqRoute
+  '/help': typeof HelpRoute
+  '/how-to-apply': typeof HowToApplyRoute
+  '/sign-in': typeof SignInRoute
+  '/workspace': typeof WorkspaceRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/schemes/$code': typeof SchemesCodeRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/schemes/': typeof SchemesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/documents': typeof DocumentsRoute
+  '/eligibility': typeof EligibilityRoute
+  '/faq': typeof FaqRoute
+  '/help': typeof HelpRoute
+  '/how-to-apply': typeof HowToApplyRoute
+  '/sign-in': typeof SignInRoute
+  '/workspace': typeof WorkspaceRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/schemes/$code': typeof SchemesCodeRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/schemes': typeof SchemesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/documents': typeof DocumentsRoute
+  '/eligibility': typeof EligibilityRoute
+  '/faq': typeof FaqRoute
+  '/help': typeof HelpRoute
+  '/how-to-apply': typeof HowToApplyRoute
+  '/sign-in': typeof SignInRoute
+  '/workspace': typeof WorkspaceRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/schemes/$code': typeof SchemesCodeRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/schemes/': typeof SchemesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/announcements'
+    | '/documents'
+    | '/eligibility'
+    | '/faq'
+    | '/help'
+    | '/how-to-apply'
+    | '/sign-in'
+    | '/workspace'
+    | '/projects/$slug'
+    | '/schemes/$code'
+    | '/projects/'
+    | '/schemes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/announcements'
+    | '/documents'
+    | '/eligibility'
+    | '/faq'
+    | '/help'
+    | '/how-to-apply'
+    | '/sign-in'
+    | '/workspace'
+    | '/projects/$slug'
+    | '/schemes/$code'
+    | '/projects'
+    | '/schemes'
+  id:
+    | '__root__'
+    | '/'
+    | '/announcements'
+    | '/documents'
+    | '/eligibility'
+    | '/faq'
+    | '/help'
+    | '/how-to-apply'
+    | '/sign-in'
+    | '/workspace'
+    | '/projects/$slug'
+    | '/schemes/$code'
+    | '/projects/'
+    | '/schemes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnnouncementsRoute: typeof AnnouncementsRoute
+  DocumentsRoute: typeof DocumentsRoute
+  EligibilityRoute: typeof EligibilityRoute
+  FaqRoute: typeof FaqRoute
+  HelpRoute: typeof HelpRoute
+  HowToApplyRoute: typeof HowToApplyRoute
+  SignInRoute: typeof SignInRoute
+  WorkspaceRoute: typeof WorkspaceRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  SchemesCodeRoute: typeof SchemesCodeRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  SchemesIndexRoute: typeof SchemesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/announcements': {
+      id: '/announcements'
+      path: '/announcements'
+      fullPath: '/announcements'
+      preLoaderRoute: typeof AnnouncementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eligibility': {
+      id: '/eligibility'
+      path: '/eligibility'
+      fullPath: '/eligibility'
+      preLoaderRoute: typeof EligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-apply': {
+      id: '/how-to-apply'
+      path: '/how-to-apply'
+      fullPath: '/how-to-apply'
+      preLoaderRoute: typeof HowToApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workspace': {
+      id: '/workspace'
+      path: '/workspace'
+      fullPath: '/workspace'
+      preLoaderRoute: typeof WorkspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schemes/': {
+      id: '/schemes/'
+      path: '/schemes'
+      fullPath: '/schemes/'
+      preLoaderRoute: typeof SchemesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schemes/$code': {
+      id: '/schemes/$code'
+      path: '/schemes/$code'
+      fullPath: '/schemes/$code'
+      preLoaderRoute: typeof SchemesCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnnouncementsRoute: AnnouncementsRoute,
+  DocumentsRoute: DocumentsRoute,
+  EligibilityRoute: EligibilityRoute,
+  FaqRoute: FaqRoute,
+  HelpRoute: HelpRoute,
+  HowToApplyRoute: HowToApplyRoute,
+  SignInRoute: SignInRoute,
+  WorkspaceRoute: WorkspaceRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  SchemesCodeRoute: SchemesCodeRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  SchemesIndexRoute: SchemesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
