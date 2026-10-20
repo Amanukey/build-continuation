@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Demo content and rules (schemes, projects, eligibility logic) live in src/lib/demo-data.ts; pages import from it so data stays synthetic and tested in one place.
+- Demo roles are browser-tab only (sessionStorage); no real auth or personal data is collected.
